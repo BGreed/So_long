@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 03:34:51 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 17:52:32 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:55:27 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int ft_parsing(t_data *data)
     {
         if (line[0] == '\n')
             {
-                close(fd);
+                free(full_map);
                 free(line);
-                return (ft_putendl_fd("Error\nEmpty Line", 2), EXIT_FAILURE);    
+                close(fd);
+                ft_putendl_fd("Error\nEmpty Line", 2);
+                exit(EXIT_FAILURE);
             }
         full_map = ft_re_strjoin(full_map, line);
         free(line);
