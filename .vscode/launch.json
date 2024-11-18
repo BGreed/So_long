@@ -6,7 +6,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/so_long", // Chemin vers l'exécutable
-        "args": ["map/map.ber"],                // Arguments à passer au programme
+        "args": ["maps/map.ber"],                // Arguments à passer au programme
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",            // Dossier de travail
         "environment": [],

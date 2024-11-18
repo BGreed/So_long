@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 02:02:00 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 03:20:43 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:44:04 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,30 @@ void	ft_load_images(t_data *data)
 	}
 }
 
-void	ft_init_window(t_data *data)
+int	ft_init_window(t_data *data)
 {
+	int	x;
+	int	y;
+	
 	data->mlx = mlx_init();
 	if (!data->mlx)
-	{
-		ft_putendl_fd("Error\nFailed to initialize MiniLibX", 2);
-		exit(EXIT_FAILURE);
-	}
+		return(ft_putendl_fd("Error\nFailed to initialize MiniLibX", 2), EXIT_FAILURE);
+	mlx_get_screen_size(data->mlx, &x, &y);
+	if (data->lx * SIZE > x || data->ly * SIZE > y)
+		return (ft_putendl_fd("Error\nInvalid Screen Size", 2), EXIT_FAILURE);
 	data->mlx_win = mlx_new_window(data->mlx, data->lx * SIZE,
 			data->ly * SIZE, "so_long");
 	if (!data->mlx_win)
-	{
-		ft_putendl_fd("Error\nFailed to create window", 2);
-		exit(EXIT_FAILURE);
-	}
+		 return (ft_putendl_fd("Error\nFailed to create window", 2), EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 void ft_render_map(t_data *data)
 {
-    int x, y;
-
+    int x;
+	int	y;
+	
+	mlx_clear_window(data->mlx, data->mlx_win);
     y = 0;
     while (data->maps[y])
     {

@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 04:50:25 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 06:15:46 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:50:23 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@
 # define EXIT "images/Exit.xpm"
 
 # define SIZE 64
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define EXIT_WINDOWS 17
+
 
 typedef struct s_data
 {
@@ -45,6 +51,7 @@ typedef struct s_data
     int		px;           // Position X du joueur
     int		py;           // Position Y du joueur
 
+    int     coin_collect;
     int		coin;         // Nombre de collectibles
     int		exit;         // Nombre de sorties
     int		player;       // Nombre de joueurs
@@ -69,10 +76,16 @@ int     ft_count_char(char **map, char c);
 char    **ft_map_copy(char **map);
 int     ft_find_player(char **map, int *x, int *y);
 void	ft_load_images(t_data *data);
-void	ft_init_window(t_data *data);
+int 	ft_init_window(t_data *data);
 int     ft_close(t_data *data);
 void    ft_render_map(t_data *data);
 int     ft_check_all(t_data *data);
 int     ft_parsing(t_data *data);
+void    ft_display_maps(char **str);
+int     move_right(t_data *data);
+int     ft_move(int keycode, t_data *data);
+int     move_left(t_data *data);
+int     move_down(t_data *data);
+int     move_up(t_data *data);
 
 #endif

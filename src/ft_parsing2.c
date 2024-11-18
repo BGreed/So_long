@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:42:20 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/17 23:02:04 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 07:55:18 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ void    flood_fill(char **map, int x, int y, int *c, int *e)
 int ft_check_accessible(t_data *data)
 {
     char **map_copy;
-    int count_c = 0;
-    int count_e = 0;
-    int x, y;
+    int count_c;
+    int count_e;
 
+    count_c = 0;
+    count_e = 0;
     map_copy = ft_map_copy(data->maps);
     if (!map_copy)
         return (ft_putendl_fd("Error\nMalloc Failed", 2), EXIT_FAILURE);
-    if (!ft_find_player(data->maps, &x, &y))
+    if (!ft_find_player(data->maps, &data->px, &data->py))
         return (ft_free_map(map_copy),
                 ft_putendl_fd("Error\nPlayer Not Found", 2), EXIT_FAILURE);
-    flood_fill(map_copy, x, y, &count_c, &count_e);
+    flood_fill(map_copy, data->px, data->py, &count_c, &count_e);
     if (count_c < ft_count_char(data->maps, 'C')
         || count_e < ft_count_char(data->maps, 'E'))
         return (ft_free_map(map_copy),

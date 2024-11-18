@@ -6,11 +6,11 @@
 #    By: braugust <braugust@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/17 06:00:14 by braugust          #+#    #+#              #
-#    Updated: 2024/11/18 03:35:38 by braugust         ###   ########.fr        #
+#    Updated: 2024/11/18 08:29:25 by braugust         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	main.c ft_parsing.c ft_parsing2.c free.c moove.c map.c \
+SRCS =	main.c ft_parsing.c ft_parsing2.c free.c move.c map.c \
 utils.c
 CC =	cc -g3 -Wall -Werror -Wextra
 DIRLIB = ./libft

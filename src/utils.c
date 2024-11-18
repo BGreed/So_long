@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 03:34:51 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 06:09:58 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 07:14:38 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@ int ft_parsing(t_data *data)
 {
     int fd;
     char *line;
-    char *temp_map;
     char *full_map;
 
-    full_map = NULL;
+    full_map = ft_strdup("");
     fd = open(data->av1, O_RDONLY);
     if (fd < 0)
         return (ft_putendl_fd("Error\nFailed to open the map file.", 2), EXIT_FAILURE);
     while ((line = get_next_line(fd)))
     {
-        temp_map = full_map;
-        full_map = ft_strjoin(temp_map, line);
-        free(temp_map);
+        full_map = ft_re_strjoin(full_map, line);
         free(line);
         if (!full_map)
             return (ft_putendl_fd("Error\nMemory allocation failed.", 2), EXIT_FAILURE);
@@ -44,4 +41,18 @@ int ft_parsing(t_data *data)
     if (data->lx <= 0 || data->ly <= 0)
         return (ft_putendl_fd("Error\nInvalid map dimensions", 2), EXIT_FAILURE);
     return (EXIT_SUCCESS);
+}
+
+
+void    ft_display_maps(char **str)
+{
+    int    i;
+
+    i = 0;
+    while (str[i])
+    {
+        printf("%s\n", str[i]);
+        i++;
+    }
+    return ;
 }
