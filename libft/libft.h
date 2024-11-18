@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:54:52 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 03:38:34 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 05:54:57 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 512
 # endif
-
 
 char	*ft_buff_to_all(char *all, char *buff);
 char	*ft_read_file(int fd, char *sortie, char *buff);

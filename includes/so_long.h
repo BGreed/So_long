@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 04:50:25 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 03:35:49 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 06:15:46 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_load_images(t_data *data);
 void	ft_init_window(t_data *data);
 int     ft_close(t_data *data);
 void    ft_render_map(t_data *data);
-int     ft_run_checks(t_data *data);
+int     ft_check_all(t_data *data);
 int     ft_parsing(t_data *data);
 
 #endif

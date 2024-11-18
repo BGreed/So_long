@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 05:16:38 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 03:26:32 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 05:57:29 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int ft_check_ber(char *str)
     return (0);
 }
 
-int ft_run_checks(t_data *data)
+int ft_check_all(t_data *data)
 {
     if (ft_check_ber(data->av1) != 0)
         return (ft_putendl_fd("Error\nInvalid file extension. Must be .ber", 2), EXIT_FAILURE);

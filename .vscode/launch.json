@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "(gdb) Launch",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/so_long", // Chemin vers l'exécutable
+        "args": ["map/map.ber"],                // Arguments à passer au programme
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",            // Dossier de travail
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",                        // Utilisation de gdb
+        "miDebuggerPath": "/usr/bin/gdb",       // Chemin vers gdb (à adapter si nécessaire)
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
+      }
+    ]
+}
