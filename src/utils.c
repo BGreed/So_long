@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 03:34:51 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 11:13:48 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:52:32 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ int ft_parsing(t_data *data)
         return (ft_putendl_fd("Error\nFailed to open the map file.", 2), EXIT_FAILURE);
     while ((line = get_next_line(fd)))
     {
+        if (line[0] == '\n')
+            {
+                close(fd);
+                free(line);
+                return (ft_putendl_fd("Error\nEmpty Line", 2), EXIT_FAILURE);    
+            }
         full_map = ft_re_strjoin(full_map, line);
         free(line);
         if (!full_map)

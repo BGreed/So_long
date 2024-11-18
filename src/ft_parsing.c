@@ -6,13 +6,13 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 05:16:38 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 11:29:32 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:02:04 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int ft_check_wall(t_data *data)
+int ft_check_rectangle(t_data *data)
 {
     int i;
     int len;
@@ -22,21 +22,36 @@ int ft_check_wall(t_data *data)
     while (data->maps[++i])
     {
         if ((int)ft_strlen(data->maps[i]) != len)
-            return(ft_putendl_fd("Error\nMap Not Rectangle", 2), EXIT_FAILURE);
+            return(EXIT_FAILURE);
+    }
+    return (EXIT_SUCCESS);
+}
+
+int ft_check_wall(t_data *data)
+{
+    int i;
+    int j;
+
+    j = 0;
+    while (j < data->lx)
+    {
+        if (data->maps[0][j] != '1')
+            return (ft_putendl_fd("Error\nWall Not Closed Top", 2), EXIT_FAILURE);
+        j++;
     }
     i = 0;
-    while (i < len)
+    while (i < data->ly)
     {
-        if (data->maps[0][i] != '1')
-            return(ft_putendl_fd("Error\nWall Not ClosedH", 2), EXIT_FAILURE);
+        if (data->maps[i][0] != '1' || data->maps[i][data->lx - 1] != '1')
+            return (ft_putendl_fd("Error\nWall Not Closed Sides", 2), EXIT_FAILURE);
         i++;
     }
-    i = 0;
-    while (data->maps[i])
+    j = 0;
+    while (j < data->lx)
     {
-        if (data->maps[i][0] != '1'|| data->maps[i][len - 1] != '1')
-            return (ft_putendl_fd("Error\nWall Not ClosedC", 2), EXIT_FAILURE);
-        i++;
+        if (data->maps[data->ly - 1][j] != '1')
+            return (ft_putendl_fd("Error\nWall Not Closed Bottom", 2), EXIT_FAILURE);
+        j++;
     }
     return (EXIT_SUCCESS);
 }

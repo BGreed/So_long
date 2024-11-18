@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:42:20 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 07:55:18 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:13:53 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void    flood_fill(char **map, int x, int y, int *c, int *e)
     if (map[y][x] == 'C')
         (*c)++;
     if (map[y][x] == 'E')
+    {
         (*e)++;
+        return ;
+    }
     map[y][x] = 'V';
     flood_fill(map, x + 1, y, c, e);
     flood_fill(map, x - 1, y, c, e);
