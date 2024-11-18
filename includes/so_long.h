@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 04:50:25 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 18:46:08 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:08:49 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,5 @@ int     ft_move(int keycode, t_data *data);
 int     move_left(t_data *data);
 int     move_down(t_data *data);
 int     move_up(t_data *data);
-int     ft_check_vertical(t_data *data);
-int     ft_check_horizontal(t_data *data);
 
 #endif
