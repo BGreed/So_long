@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 04:50:25 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 09:50:23 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:50:55 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define A_KEY 97
 # define S_KEY 115
 # define D_KEY 100
-# define EXIT_WINDOWS 17
+# define EXIT_WINDOWS 65307
 
 
 typedef struct s_data
@@ -87,5 +87,6 @@ int     ft_move(int keycode, t_data *data);
 int     move_left(t_data *data);
 int     move_down(t_data *data);
 int     move_up(t_data *data);
+int  update_scene(void *param);
 
 #endif

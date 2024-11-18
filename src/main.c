@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 23:03:49 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 09:58:32 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:52:06 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int main(int argc, char **argv)
     ft_load_images(&data);
     ft_render_map(&data);
     mlx_hook(data.mlx_win, 2, 1L << 0, ft_move, &data);
-    mlx_hook(data.mlx_win, EXIT_WINDOWS, 1L << 0, ft_close, &data);
+    mlx_hook(data.mlx_win, 17, 1L << 0, ft_close, &data);
     mlx_loop(data.mlx);
-    ft_free_map(data.maps);
+    ft_close(data.mlx);
     return (EXIT_SUCCESS);
 }
 

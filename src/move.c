@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:34:09 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 10:11:09 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:12:44 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ int move_up(t_data *data)
         return (EXIT_FAILURE);
     if (next_pos == 'C')
         data->coin_collect--;
-
     data->maps[data->py][data->px] = '0';
+    if (next_pos == 'E' && data->coin_collect == 0)
+    {
+        data->px++;
+        ft_printf("YOU WIN !!");
+        ft_close(data);
+    }
     data->maps[data->py - 1][data->px] = 'P';
     data->py--;
 
@@ -40,8 +45,13 @@ int move_down(t_data *data)
         return (EXIT_FAILURE);
     if (next_pos == 'C')
         data->coin_collect--;
-
     data->maps[data->py][data->px] = '0';
+    if (next_pos == 'E' && data->coin_collect == 0)
+    {
+        data->px++;
+        ft_printf("YOU WIN !!");
+        ft_close(data);
+    }
     data->maps[data->py + 1][data->px] = 'P';
     data->py++;
 
@@ -58,8 +68,13 @@ int move_left(t_data *data)
         return (EXIT_FAILURE);
     if (next_pos == 'C') 
         data->coin_collect--;
-
     data->maps[data->py][data->px] = '0';
+    if (next_pos == 'E' && data->coin_collect == 0)
+    {
+        data->px++;
+        ft_printf("YOU WIN !!");
+        ft_close(data);
+    }
     data->maps[data->py][data->px - 1] = 'P';
     data->px--;
 
@@ -77,6 +92,12 @@ int move_right(t_data *data)
     if (next_pos == 'C')
         data->coin_collect--;
     data->maps[data->py][data->px] = '0';
+    if (next_pos == 'E' && data->coin_collect == 0)
+    {
+        data->px++;
+        ft_printf("YOU WIN !!");
+        ft_close(data);
+    }
     data->maps[data->py][data->px + 1] = 'P';
     data->px++;
 
@@ -87,7 +108,7 @@ int ft_move(int keycode, t_data *data)
 {
     int exit_status = EXIT_FAILURE;
 
-    if (data->coin_collect == 0 && data->maps[data->py][data->px] == 'E')
+    if (keycode == EXIT_WINDOWS)
         ft_close(data);
     if (keycode == W_KEY)
         exit_status = move_up(data);
@@ -97,16 +118,13 @@ int ft_move(int keycode, t_data *data)
         exit_status = move_left(data);
     else if (keycode == D_KEY)
         exit_status = move_right(data);
+
     if (exit_status == EXIT_SUCCESS)
     {
         data->move++;
         ft_render_map(data);
-        printf("Moves: %d\n", data->move);
-        if (data->coin == 0 && data->maps[data->py][data->px] == 'E')
-        {
-            printf("YOU WIN !!\n");
-            ft_close(data);
-        }
+        ft_printf("Moves: %d\n", data->move);
     }
+
     return (exit_status);
 }

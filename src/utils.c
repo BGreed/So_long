@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 03:34:51 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 07:14:38 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:13:48 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void    ft_display_maps(char **str)
     i = 0;
     while (str[i])
     {
-        printf("%s\n", str[i]);
+        ft_printf("%s\n", str[i]);
         i++;
     }
     return ;

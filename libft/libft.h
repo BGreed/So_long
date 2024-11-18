@@ -6,18 +6,19 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:54:52 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 05:54:57 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:07:25 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include<stdlib.h>
-# include<unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <string.h>
+# include <stdarg.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 512
@@ -65,5 +66,13 @@ void	ft_putnbr_fd(int n, int fd);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+int		ft_putchar(char c);
+int		ft_printf(const char *str, ...);
+int		ft_putstr(const char *str);
+int		ft_putnbr_base(unsigned long nb, char *base);
+int		ft_convert_ptr(void *pt);
+int		ft_putnbr(int nb);
+int		ft_putusig(unsigned int nb);
+int		ft_printhexa(unsigned int nb, const char base);
 
 #endif

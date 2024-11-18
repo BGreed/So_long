@@ -6,7 +6,7 @@
 /*   By: braugust <braugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 05:16:38 by braugust          #+#    #+#             */
-/*   Updated: 2024/11/18 07:17:28 by braugust         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:29:32 by braugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int ft_check_valid(t_data *data)
     data->player = 0;
     data->exit = 0;
     data->coin = 0;
+    data->move = 0;
     while (data->maps[++i])
     {
         j = -1;
@@ -85,6 +86,7 @@ int ft_check_valid(t_data *data)
                 data->coin++;
         }
     }
+    data->coin_collect = data->coin;
     if (data->player != 1 || data->exit != 1 || data->coin < 1)
         return (ft_putendl_fd("Error\nInvalid map elements", 2), EXIT_FAILURE);
     return (EXIT_SUCCESS);
